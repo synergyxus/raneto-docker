@@ -27,6 +27,10 @@ WORKDIR $RANETO_INSTALL_DIR
 RUN npm install \
     && rm -f $RANETO_INSTALL_DIR/example/config.default.js \
     && gulp
+    
+# Add content and config
+COPY /config/config.default.js /opt/raneto/example/config.default.js  
+COPY /content/ /data/content/
 
 # Exposed the raneto default port 3000
 EXPOSE 3000
